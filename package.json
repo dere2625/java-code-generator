@@ -1,0 +1,19 @@
+{
+  "name": "generator-excellerent-spring-java",
+  "version": "1.0.0",
+  "description": "This is a Java-Spring based code Generator",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^5.4.2"
+  },
+  "author": "Dereje Dejene",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/dere2625/java-code-generator"
+  }
+}
