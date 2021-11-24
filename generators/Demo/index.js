@@ -7,6 +7,6 @@ module.exports = class extends Generator{
 
     method1(){
 
-        this.log('Second one');
+        this.log('First one');
     }
 };
