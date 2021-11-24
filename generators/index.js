@@ -1,12 +1,43 @@
 var Generator = require('yeoman-generator');
-module.exports = class extends Generator{
-    constructor(args, opts){
-        super(args, opts);
-        this.option('babel');
-    }
+module.exports = class extends Generator {
+    
+    async prompts() {
+        this.answers = await this.prompt([
+            {
+                type: 'input',
+                name: 'templatePath',
+                message: 'Where is your template file?',
+            }
+        ]);
+    }  
 
-    method1(){
 
-        this.log('Third one');
+    readAndGenerateFiles(){
+        
+        var temp = JSON.parse(JSON.stringify(this.fs.readJSON(
+            this.answers.templatePath
+        )));
+        
+        var templateFile  = temp.properties;
+        // this.log(templateFile.forEach(element => {
+        //     this.log(element.projectLocation),
+        //     this.log(element.projectName)
+        // }));;
+
+        templateFile.forEach(element => {
+            this.fs.copyTpl(
+                this.templatePath('./Java/Init'),
+                this.destinationPath(element.projectLocation+'/'
+                                    +temp.appName+'/'+ 
+                                    element.projectName+'.java'),
+                {
+                    'projectName' : element.projectName,
+                    'projectType' : element.projectType,
+                    'appName' : temp.appName
+                }
+            );
+        });;
+
+        
     }
-};
+}
