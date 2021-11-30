@@ -1,0 +1,12 @@
+[
+    {
+        "templateType": "Java",
+        "numberOfPackages": 3,
+        "subFolders" : ["models","repository","controllers"]
+    },
+    {
+        "templateType": "Spring",
+        "numberOfPackages": 4,
+        "subFolders" : ["models","repository","controllers","services"]
+    }
+]
